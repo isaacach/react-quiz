@@ -1,6 +1,7 @@
 import './App.css'
 import { getDefaultQuiz, getSessionToken } from './api/api'
 import { useEffect, useState } from 'react';
+import Welcome from './components/welcome';
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -11,10 +12,10 @@ function App() {
       const quiz = await getDefaultQuiz();
       const token = await getSessionToken();
       setQuestions(quiz);
-      setToken(token)
+      setToken(token);
     };
   
-    getQuiz(); // run it, run it
+    getQuiz(); 
   
     return () => {
       // this now gets called when the component unmounts
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <div>
-      {questions}
+      <Welcome />
     </div>
     
   )
