@@ -1,4 +1,143 @@
+import { useState } from "react";
+import Dropdown from "./Dropdown";
+
 export default function Welcome() {
+
+  const [selection, setSelection] = useState(null);
+
+  const handleSelect = (option) => {
+    setSelection(option);
+  }
+
+  const dropdownOptions = [
+    {
+      id: 1,
+      label: 'Any Category',
+      value: 'any',
+    },
+    {
+      id: 2,
+      label: 'General Knowledge',
+      value: '9',
+    },
+    {
+      id: 3,
+      label: 'Entertainment: Books',
+      value: '10',
+    },
+    {
+      id: 4,
+      label: 'Entertainment: Film',
+      value: '11',
+    },
+    {
+      id: 5,
+      label: 'Entertainment: Music',
+      value: '12',
+    },
+    {
+      id: 6,
+      label: 'Entertainment: Musicals &amp; Theatres',
+      value: '13',
+    },
+    {
+      id: 7,
+      label: 'Entertainment: Television',
+      value: '14',
+    },
+    {
+      id: 8,
+      label: 'Entertainment: Video Games',
+      value: '15',
+    },
+    {
+      id: 9,
+      label: 'Entertainment: Board Games',
+      value: '16',
+    },
+    {
+      id: 10,
+      label: 'Science &amp; Nature',
+      value: '17',
+    },
+    {
+      id: 11,
+      label: 'Science: Computers',
+      value: '18',
+    },
+    {
+      id: 12,
+      label: 'Science: Mathematics',
+      value: '19',
+    },
+    {
+      id: 13,
+      label: 'Mythology',
+      value: '20',
+    },
+    {
+      id: 14,
+      label: 'Sports',
+      value: '21',
+    },
+    {
+      id: 15,
+      label: 'Geography',
+      value: '22',
+    },
+    {
+      id: 16,
+      label: 'History',
+      value: '23',
+    },
+    {
+      id: 17,
+      label: 'Politics',
+      value: '24',
+    },
+    {
+      id: 18,
+      label: 'Art',
+      value: '25',
+    },
+    {
+      id: 19,
+      label: 'Celebrities',
+      value: '26',
+    },
+    {
+      id: 20,
+      label: 'Animals',
+      value: '27',
+    },
+    {
+      id: 21,
+      label: 'Vehicles',
+      value: '28',
+    },
+    {
+      id: 22,
+      label: 'Entertainment: Comics',
+      value: '29',
+    },
+    {
+      id: 23,
+      label: 'Science: Gadgets',
+      value: '30',
+    },
+    {
+      id: 24,
+      label: 'Entertainment: Japanese Anime &amp; Manga',
+      value: '31',
+    },
+    {
+      id: 25,
+      label: 'Entertainment: Cartoon &amp; Animations',
+      value: '32',
+    }
+    ]
+
+
   return (
     <div>
       <h1>Test your knowledge</h1>
@@ -15,36 +154,7 @@ export default function Welcome() {
           />
         </div>
         <div className="form-block">
-          <label htmlFor="trivia_category">Category</label>
-          <select name="trivia_category">
-            <option value="any">Any Category</option>
-            <option value="9">General Knowledge</option>
-            <option value="10">Entertainment: Books</option>
-            <option value="11">Entertainment: Film</option>
-            <option value="12">Entertainment: Music</option>
-            <option value="13">Entertainment: Musicals &amp; Theatres</option>
-            <option value="14">Entertainment: Television</option>
-            <option value="15">Entertainment: Video Games</option>
-            <option value="16">Entertainment: Board Games</option>
-            <option value="17">Science &amp; Nature</option>
-            <option value="18">Science: Computers</option>
-            <option value="19">Science: Mathematics</option>
-            <option value="20">Mythology</option>
-            <option value="21">Sports</option>
-            <option value="22">Geography</option>
-            <option value="23">History</option>
-            <option value="24">Politics</option>
-            <option value="25">Art</option>
-            <option value="26">Celebrities</option>
-            <option value="27">Animals</option>
-            <option value="28">Vehicles</option>
-            <option value="29">Entertainment: Comics</option>
-            <option value="30">Science: Gadgets</option>
-            <option value="31">
-              Entertainment: Japanese Anime &amp; Manga
-            </option>
-            <option value="32">Entertainment: Cartoon &amp; Animations</option>
-          </select>
+          <Dropdown options={dropdownOptions} />
         </div>
         <div className="form-block">
           <label htmlFor="trivia_difficulty">Difficulty</label>
