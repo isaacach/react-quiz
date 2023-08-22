@@ -154,7 +154,7 @@ export default function Welcome() {
           />
         </div>
         <div className="form-block">
-          <Dropdown options={dropdownOptions} />
+          <Dropdown options={dropdownOptions} value={selection} onChange={handleSelect} />
         </div>
         <div className="form-block">
           <label htmlFor="trivia_difficulty">Difficulty</label>
