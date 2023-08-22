@@ -1,6 +1,6 @@
 
 
-export default function Question({ question, onAnswer }) {
+export default function Question() {
   return (
     <div>Questions</div>
   );

@@ -2,141 +2,167 @@ import { useState } from "react";
 import Dropdown from "./Dropdown";
 
 export default function Welcome() {
+  const [categorySelection, setCategorySelection] = useState(null);
+  const [difficultySelection, setDifficultySelection] = useState(null);
 
-  const [selection, setSelection] = useState(null);
+  const handleCategorySelect = (option) => {
+    setCategorySelection(option);
+  };
 
-  const handleSelect = (option) => {
-    setSelection(option);
-  }
+  const handleDifficultySelect = (option) => {
+    setDifficultySelection(option);
+  };
 
-  const dropdownOptions = [
+  const dropdownCategoryOptions = [
     {
       id: 1,
-      label: 'Any Category',
-      value: 'any',
+      label: "Any Category",
+      value: "any",
     },
     {
       id: 2,
-      label: 'General Knowledge',
-      value: '9',
+      label: "General Knowledge",
+      value: "9",
     },
     {
       id: 3,
-      label: 'Entertainment: Books',
-      value: '10',
+      label: "Entertainment: Books",
+      value: "10",
     },
     {
       id: 4,
-      label: 'Entertainment: Film',
-      value: '11',
+      label: "Entertainment: Film",
+      value: "11",
     },
     {
       id: 5,
-      label: 'Entertainment: Music',
-      value: '12',
+      label: "Entertainment: Music",
+      value: "12",
     },
     {
       id: 6,
-      label: 'Entertainment: Musicals &amp; Theatres',
-      value: '13',
+      label: "Entertainment: Musicals &amp; Theatres",
+      value: "13",
     },
     {
       id: 7,
-      label: 'Entertainment: Television',
-      value: '14',
+      label: "Entertainment: Television",
+      value: "14",
     },
     {
       id: 8,
-      label: 'Entertainment: Video Games',
-      value: '15',
+      label: "Entertainment: Video Games",
+      value: "15",
     },
     {
       id: 9,
-      label: 'Entertainment: Board Games',
-      value: '16',
+      label: "Entertainment: Board Games",
+      value: "16",
     },
     {
       id: 10,
-      label: 'Science &amp; Nature',
-      value: '17',
+      label: "Science &amp; Nature",
+      value: "17",
     },
     {
       id: 11,
-      label: 'Science: Computers',
-      value: '18',
+      label: "Science: Computers",
+      value: "18",
     },
     {
       id: 12,
-      label: 'Science: Mathematics',
-      value: '19',
+      label: "Science: Mathematics",
+      value: "19",
     },
     {
       id: 13,
-      label: 'Mythology',
-      value: '20',
+      label: "Mythology",
+      value: "20",
     },
     {
       id: 14,
-      label: 'Sports',
-      value: '21',
+      label: "Sports",
+      value: "21",
     },
     {
       id: 15,
-      label: 'Geography',
-      value: '22',
+      label: "Geography",
+      value: "22",
     },
     {
       id: 16,
-      label: 'History',
-      value: '23',
+      label: "History",
+      value: "23",
     },
     {
       id: 17,
-      label: 'Politics',
-      value: '24',
+      label: "Politics",
+      value: "24",
     },
     {
       id: 18,
-      label: 'Art',
-      value: '25',
+      label: "Art",
+      value: "25",
     },
     {
       id: 19,
-      label: 'Celebrities',
-      value: '26',
+      label: "Celebrities",
+      value: "26",
     },
     {
       id: 20,
-      label: 'Animals',
-      value: '27',
+      label: "Animals",
+      value: "27",
     },
     {
       id: 21,
-      label: 'Vehicles',
-      value: '28',
+      label: "Vehicles",
+      value: "28",
     },
     {
       id: 22,
-      label: 'Entertainment: Comics',
-      value: '29',
+      label: "Entertainment: Comics",
+      value: "29",
     },
     {
       id: 23,
-      label: 'Science: Gadgets',
-      value: '30',
+      label: "Science: Gadgets",
+      value: "30",
     },
     {
       id: 24,
-      label: 'Entertainment: Japanese Anime &amp; Manga',
-      value: '31',
+      label: "Entertainment: Japanese Anime &amp; Manga",
+      value: "31",
     },
     {
       id: 25,
-      label: 'Entertainment: Cartoon &amp; Animations',
-      value: '32',
-    }
-    ]
+      label: "Entertainment: Cartoon &amp; Animations",
+      value: "32",
+    },
+  ];
 
+  const dropdownDifficultyOptions = [
+    {
+      id: 1,
+      label: "Any Difficulty",
+      value: "any",
+    },
+    {
+      id: 2,
+      label: "Easy",
+      value: "easy",
+    },
+    {
+      id: 3,
+      label: "Medium",
+      value: "medium",
+    },
+    {
+      id: 4,
+      label: "Hard",
+      value: "hard",
+    },
+  ];
 
   return (
     <div>
@@ -154,16 +180,18 @@ export default function Welcome() {
           />
         </div>
         <div className="form-block">
-          <Dropdown options={dropdownOptions} value={selection} onChange={handleSelect} />
+          <Dropdown
+            options={dropdownCategoryOptions}
+            value={categorySelection}
+            onChange={handleCategorySelect}
+          />
         </div>
         <div className="form-block">
-          <label htmlFor="trivia_difficulty">Difficulty</label>
-          <select name="trivia_difficulty">
-            <option value="any">Any Difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
+          <Dropdown
+            options={dropdownDifficultyOptions}
+            value={difficultySelection}
+            onChange={handleDifficultySelect}
+          />
         </div>
       </form>
       <button>Start</button>
