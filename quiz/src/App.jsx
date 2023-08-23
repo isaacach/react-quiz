@@ -9,6 +9,7 @@ function App() {
   const [difficultySelection, setDifficultySelection] = useState(null);
   const [questionsSelection, setQuestionsSelection] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
 
   const handleCategorySelect = (option) => {
     setCategorySelection(option);
@@ -35,9 +36,17 @@ function App() {
     fetchQuiz();
   };
 
+  const handleAddAnswer = (answer) => {
+    setAnswers([...answers, answer]);
+  };
+
   useEffect(() => {
     console.log(questions);
   }, [questions]);
+
+  useEffect(() => {
+    console.log(answers);
+  }, [answers]);
 
   return (
     <div>
@@ -50,9 +59,9 @@ function App() {
         difficulty={difficultySelection}
       />
       <div>
-      {questions.map((question) => {
+      {questions.map((question, index) => {
         return (
-          <Question question={question} />
+          <Question key={index} question={question} questionIndex={index} onAnswerChange={handleAddAnswer}/>
         );
       })
       }

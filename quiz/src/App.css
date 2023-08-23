@@ -75,7 +75,7 @@ input[type="number"]:focus-visible {
   outline: 2px solid #380550;
 }
 
-button {
+.submit-welcome {
   width: 200px;
   height: 40px;
   border-radius: 8px;
@@ -161,9 +161,10 @@ select::-ms-expand {
   }
 }
 
-.answer-card {
+.question-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 800px;
   padding: 2em;
   background-color: #1a1a1a;
@@ -171,4 +172,24 @@ select::-ms-expand {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.answers {
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button-answer {
+  margin-top: 30px;
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #928c8c;
+  cursor: pointer;
+}
 
