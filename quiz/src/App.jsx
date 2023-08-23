@@ -12,7 +12,6 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [questionsIndex, setQuestionsIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleCategorySelect = (option) => {
     setCategorySelection(option);
@@ -52,6 +51,7 @@ function App() {
   useEffect(() => {
     console.log(answers);
   }, [answers]);
+
 
   return (
     <div>

@@ -14,6 +14,7 @@ export default function Question({ question, questionIndex, onAnswerChange }) {
 
   const handleAnswerSubmit = () => {
     onAnswerChange(selectedAnswer);
+    selectedAnswer(null);
   };
 
   const answers = question.incorrect_answers.filter((answer, index) => {
