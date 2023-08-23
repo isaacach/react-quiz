@@ -41,8 +41,8 @@ export default function Dropdown({ options, value, onChange}) {
 
   return (
     <div ref={divEl} className='w-52 dropdown'>
-      <Panel className='dropdown-panel flex justify-between items-center bg-gray-200  border border-gray-400' onClick={handleClick} >
-        {value?.label || 'Select a color'}
+      <Panel className='dropdown-panel' onClick={handleClick} >
+        {value?.label || 'Select'}
         <span>{isOpen ? <HiOutlineChevronUp /> : <HiOutlineChevronDown />}</span>
         </Panel>
       {isOpen && <div className='options-wrapper'>{renderedOptions}</div>}

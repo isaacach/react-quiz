@@ -1,16 +1,19 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import Dropdown from "./Dropdown";
 
-export default function Welcome() {
-  const [categorySelection, setCategorySelection] = useState(null);
-  const [difficultySelection, setDifficultySelection] = useState(null);
+export default function Welcome({ onCategoryChange, onDifficultyChange, onsubmit, category, difficulty }) {
+  
 
-  const handleCategorySelect = (option) => {
-    setCategorySelection(option);
+  const handleCategoryChange = (option) => {
+    onCategoryChange(option);
   };
 
-  const handleDifficultySelect = (option) => {
-    setDifficultySelection(option);
+  const handleDifficultyChange = (option) => {
+    onDifficultyChange(option);
+  };
+
+  const handleClick = () => {
+    onsubmit(true);
   };
 
   const dropdownCategoryOptions = [
@@ -182,19 +185,19 @@ export default function Welcome() {
         <div className="form-block">
           <Dropdown
             options={dropdownCategoryOptions}
-            value={categorySelection}
-            onChange={handleCategorySelect}
+            value={category}
+            onChange={handleCategoryChange}
           />
         </div>
         <div className="form-block">
           <Dropdown
             options={dropdownDifficultyOptions}
-            value={difficultySelection}
-            onChange={handleDifficultySelect}
+            value={difficulty}
+            onChange={handleDifficultyChange}
           />
         </div>
       </form>
-      <button>Start</button>
+      <button onClick={handleClick}>Start</button>
     </div>
   );
 }
