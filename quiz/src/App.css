@@ -97,4 +97,46 @@ select::-ms-expand {
   display: none;
 }
 
+.dropdown-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  background-color: #646cff;
+  border-radius: 5px;
+  padding-inline: 10px;
+  cursor: pointer;
+}
+
+.options-wrapper {
+  overflow: hidden;
+  height: 600px;
+  animation: open 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.option:hover {
+  background-color: #646cff;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    height: 600px;
+  }
+}
+
 

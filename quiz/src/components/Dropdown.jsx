@@ -33,7 +33,7 @@ export default function Dropdown({ options, value, onChange}) {
 
   const renderedOptions = options.map((option) => {
     return (
-      <Panel className='bg-gray-50 border-b' key={option.value} onClick={() => handleOptionClick(option)}>
+      <Panel className='option' key={option.value} onClick={() => handleOptionClick(option)}>
         {option.label}
       </Panel>
     );
@@ -41,11 +41,11 @@ export default function Dropdown({ options, value, onChange}) {
 
   return (
     <div ref={divEl} className='w-52 dropdown'>
-      <Panel className='flex justify-between items-center bg-gray-200  border border-gray-400' onClick={handleClick} >
+      <Panel className='dropdown-panel flex justify-between items-center bg-gray-200  border border-gray-400' onClick={handleClick} >
         {value?.label || 'Select a color'}
         <span>{isOpen ? <HiOutlineChevronUp /> : <HiOutlineChevronDown />}</span>
         </Panel>
-      {isOpen && <div>{renderedOptions}</div>}
+      {isOpen && <div className='options-wrapper'>{renderedOptions}</div>}
     </div>
     
   );
