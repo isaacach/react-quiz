@@ -34,10 +34,12 @@ export default function Question({ question, questionIndex, onAnswerChange }) {
       <h3>{newQuestionTitle}</h3>
       <div  className="answers">
       {answers.map((answer, index) => {
+        let newAnswer = answer.replace(/&quot;/g, '"');
+        let newAnswer2 = newAnswer.replace(/&#039;/g, "'");
         return (
           <div key={index}>
             <input type="radio" id={answer} name={`question${questionIndex}`} value={answer} onClick={handleAnswerChange} />
-            <label htmlFor={answer}>{answer}</label>
+            <label htmlFor={answer}>{newAnswer2}</label>
           </div>
         );
       })
