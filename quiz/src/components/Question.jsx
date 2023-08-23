@@ -9,7 +9,7 @@ export default function Question({ question }) {
   answers.splice(randomIndex, 0, question.correct_answer);
 
   return (
-    <div>
+    <div className="answer-card">
       <h3>{question.question}</h3>
       <form>
       {answers.map((answer, index) => {

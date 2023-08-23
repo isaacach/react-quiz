@@ -161,4 +161,14 @@ select::-ms-expand {
   }
 }
 
+.answer-card {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  padding: 2em;
+  background-color: #1a1a1a;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 
