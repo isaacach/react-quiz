@@ -187,6 +187,7 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onQuesti
           />
         </div>
         <div className="form-block">
+          <label htmlFor="category">Category</label>
           <Dropdown
             options={dropdownCategoryOptions}
             value={category}
@@ -194,6 +195,7 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onQuesti
           />
         </div>
         <div className="form-block">
+          <label htmlFor="difficulty">Difficulty</label>
           <Dropdown
             options={dropdownDifficultyOptions}
             value={difficulty}
@@ -201,7 +203,7 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onQuesti
           />
         </div>
       </form>
-      <button onClick={handleClick}>Start</button>
+      <button className='submit-welcome' onClick={handleClick}>Start</button>
     </div>
   );
 }

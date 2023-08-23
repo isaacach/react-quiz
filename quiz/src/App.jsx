@@ -2,13 +2,13 @@ import "./App.css";
 import { getQuizWithParams} from "./api/api";
 import { useEffect, useState } from "react";
 import Welcome from "./components/welcome";
+import Question from "./components/question";
 
 function App() {
   const [categorySelection, setCategorySelection] = useState(null);
   const [difficultySelection, setDifficultySelection] = useState(null);
   const [questionsSelection, setQuestionsSelection] = useState(null);
   const [questions, setQuestions] = useState([]);
-  // const [token, setToken] = useState("");
 
   const handleCategorySelect = (option) => {
     setCategorySelection(option);
@@ -49,8 +49,14 @@ function App() {
         category={categorySelection}
         difficulty={difficultySelection}
       />
+      <div>
+      {questions.map((question) => {
+        return (
+          <Question question={question} />
+        );
+      }}
+      </div>
     </div>
   );
-}
 
 export default App;
