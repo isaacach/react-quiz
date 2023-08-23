@@ -54,9 +54,11 @@ function App() {
         return (
           <Question question={question} />
         );
-      }}
+      })
+      }
       </div>
     </div>
   );
+}
 
 export default App;

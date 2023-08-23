@@ -1,3 +1,3 @@
-export const getRandomInt = () => {
-  return Math.floor(Math.random() * 4);
+export const getRandomInt = (max) => {
+  return Math.floor(Math.random() * max);
 }
