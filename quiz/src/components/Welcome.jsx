@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Dropdown from "./Dropdown";
 
-export default function Welcome({ onCategoryChange, onDifficultyChange, onsubmit, category, difficulty }) {
+export default function Welcome({ onCategoryChange, onDifficultyChange, onQuestionsChange, onsubmit, category, difficulty }) {
   
 
   const handleCategoryChange = (option) => {
@@ -10,6 +10,10 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onsubmit
 
   const handleDifficultyChange = (option) => {
     onDifficultyChange(option);
+  };
+
+  const handleQuestionsChange = (event) => {
+    onQuestionsChange(event.target.value);
   };
 
   const handleClick = () => {
@@ -179,7 +183,7 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onsubmit
             type="number"
             min={10}
             max={50}
-            onKeyDown="return false"
+            onChange={handleQuestionsChange}
           />
         </div>
         <div className="form-block">

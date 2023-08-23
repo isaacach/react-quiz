@@ -1,12 +1,13 @@
 import "./App.css";
-// import { getDefaultQuiz, getSessionToken } from "./api/api";
+import { getQuizWithParams} from "./api/api";
 import { useEffect, useState } from "react";
 import Welcome from "./components/welcome";
 
 function App() {
   const [categorySelection, setCategorySelection] = useState(null);
   const [difficultySelection, setDifficultySelection] = useState(null);
-  // const [questions, setQuestions] = useState([]);
+  const [questionsSelection, setQuestionsSelection] = useState(null);
+  const [questions, setQuestions] = useState([]);
   // const [token, setToken] = useState("");
 
   const handleCategorySelect = (option) => {
@@ -17,23 +18,33 @@ function App() {
     setDifficultySelection(option);
   };
 
-  const handleSubmit = () => {
-    console.log(categorySelection);
-    console.log(difficultySelection);
+  const handleQuestionsSelect = (option) => {
+    setQuestionsSelection(option);
+  };
+
+  const fetchQuiz = async () => {
+    const quiz = await getQuizWithParams(
+      questionsSelection,
+      categorySelection.value,
+      difficultySelection.value
+    );
+    setQuestions(quiz);
+  };
+
+  const handleSubmit = async () => {
+    await fetchQuiz();
   };
 
   useEffect(() => {
-
-    return () => {
-      // this now gets called when the component unmounts
-    };
-  }, []);
+    console.log(questions);
+  }, [questions]);
 
   return (
     <div>
       <Welcome
         onCategoryChange={handleCategorySelect}
         onDifficultyChange={handleDifficultySelect}
+        onQuestionsChange={handleQuestionsSelect}
         onsubmit={handleSubmit}
         category={categorySelection}
         difficulty={difficultySelection}
