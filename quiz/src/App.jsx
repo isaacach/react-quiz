@@ -24,15 +24,15 @@ function App() {
 
   const fetchQuiz = async () => {
     const quiz = await getQuizWithParams(
-      questionsSelection,
-      categorySelection.value,
-      difficultySelection.value
+      questionsSelection ? questionsSelection : 10,
+      categorySelection ? categorySelection.value : 'any',
+      difficultySelection ? difficultySelection.value : 'any'
     );
     setQuestions(quiz);
   };
 
   const handleSubmit = async () => {
-    await fetchQuiz();
+    fetchQuiz();
   };
 
   useEffect(() => {

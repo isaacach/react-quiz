@@ -12,16 +12,16 @@ export const getDefaultQuiz = async () => {
 }
 
 export const getQuizWithParams = async (amount, category, difficulty) => {
-    if (amount === undefined) {
+    if (amount === null) {
         amount = 10;
     }
-    if (category === undefined) {
+    if (category === null) {
         category = 9;
     }
-    if (difficulty === undefined) {
+    if (difficulty === null) {
         difficulty = 'easy';
     }
     const response = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}`);
     const data = await response.json();
-    console.log(data.results);
+    return data.results;
 }
