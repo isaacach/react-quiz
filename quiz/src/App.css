@@ -72,7 +72,6 @@ form {
   flex-direction: column;
   gap: 8px;
   padding-bottom: 15px;
-  border-bottom: 1px solid rgba(250, 128, 114, 0.3);
 }
 
 .form-block label {
@@ -98,44 +97,50 @@ select::-ms-expand {
 }
 
 .dropdown-panel {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  background-color: #646cff;
+  background-color: #380550;
   border-radius: 5px;
   padding-inline: 10px;
   cursor: pointer;
 }
 
 .options-wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 500px;
+  background-color: #242424;
   overflow: hidden;
-  height: 600px;
+  transform-origin: top;
   animation: open 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
 .option {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 40px;
+  width: 100%;
   border-bottom: 1px solid black;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .option:hover {
-  background-color: #646cff;
+  background-color: rgba(145, 10, 172, 0.2);
 }
 
 @keyframes open {
   from {
     opacity: 0;
-    height: 0;
+    scale: 0;
   }
   to {
-    height: 600px;
+    scale: 1;
   }
 }
 
