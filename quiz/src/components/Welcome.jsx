@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import Dropdown from "./Dropdown";
 
 export default function Welcome({ onCategoryChange, onDifficultyChange, onQuestionsChange, onsubmit, category, difficulty }) {
+  const [numberChoice, setNumberChoice] = useState(50);
   
 
   const handleCategoryChange = (option) => {
@@ -13,6 +15,7 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onQuesti
   };
 
   const handleQuestionsChange = (event) => {
+    setNumberChoice(event.target.value);
     onQuestionsChange(event.target.value);
   };
 
@@ -177,10 +180,10 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onQuesti
       <h2>Choose parameters</h2>
       <form>
         <div className="form-block">
-          <label htmlFor="questions">Number of questions</label>
+          <label htmlFor="questions">Number of questions <span></span>{numberChoice}</label>
           <input
             name="questions"
-            type="number"
+            type="range"
             min={10}
             max={50}
             onChange={handleQuestionsChange}
