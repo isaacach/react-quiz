@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { getRandomInt } from "../utils/random";
 
 export default function Question({ question, questionIndex, onAnswerChange }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);

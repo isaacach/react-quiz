@@ -3,11 +3,13 @@ import { getQuizWithParams } from "./api/api";
 import { useEffect, useState } from "react";
 import Welcome from "./components/welcome";
 import Question from "./components/question";
+import Results from "./components/results";
 import { getRandomInt } from "./utils/random";
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [showResults, setShowResults] = useState(false);
+  const [showQuestions, setShowQuestions] = useState(false);
   const [categorySelection, setCategorySelection] = useState(null);
   const [difficultySelection, setDifficultySelection] = useState(null);
   const [questionsSelection, setQuestionsSelection] = useState(null);
@@ -37,8 +39,8 @@ function App() {
       let randomIndex = getRandomInt(question.incorrect_answers.length);
       question.answers = [...question.incorrect_answers];
       question.answers.splice(randomIndex, 0, question.correct_answer);
-    })
-    
+    });
+
     setQuestions(quiz);
   };
 
@@ -49,17 +51,21 @@ function App() {
 
   const handleAddAnswer = (answer) => {
     setAnswers([...answers, answer]);
+    if (questionsIndex === questions.length - 1) {
+      setShowQuestions(false);
+      setShowResults(true);
+      return;
+    }
     setQuestionsIndex(questionsIndex + 1);
   };
 
-  useEffect(() => {
-    console.log(questions);
-  }, [questions]);
+  if (questions.length > 0 && !showQuestions) {
+    setShowQuestions(true);
+  }
 
   useEffect(() => {
     console.log(answers);
   }, [answers]);
-
 
   return (
     <div>
@@ -74,13 +80,14 @@ function App() {
         />
       )}
       <div>
-        {questions.length > 0 &&
+        {showQuestions && (
           <Question
             question={questions[questionsIndex]}
             questionIndex={questionsIndex}
             onAnswerChange={handleAddAnswer}
           />
-        }
+        )}
+        {showResults && <Results answers={answers}/>}
       </div>
     </div>
   );

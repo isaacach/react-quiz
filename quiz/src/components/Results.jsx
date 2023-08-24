@@ -1,8 +1,16 @@
+/* eslint-disable react/prop-types */
 
-export default function Results() {
+export default function Results({ answers }) {
   return (
     <div>
-      <h1>Results</h1>
+    {answers.map((answer) => {
+      return (
+        <div key={answer.id}>
+          <p>{answer.value}</p>
+          <p>{answer.answer}</p>
+        </div>
+      );
+    })}
     </div>
   );
 }
