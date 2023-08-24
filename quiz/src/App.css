@@ -181,3 +181,23 @@ select::-ms-expand {
   cursor: pointer;
 }
 
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 800px;
+  padding: 2em;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  padding: 2em;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+

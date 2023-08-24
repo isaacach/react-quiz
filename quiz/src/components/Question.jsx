@@ -7,12 +7,14 @@ export default function Question({ question, questionIndex, onAnswerChange }) {
   const handleAnswerChange = (event) => {
     setSelectedAnswer({
       id: questionIndex,
-      value: event.target.value,
-      answer: question.correct_answer
+      question: newQuestionTitle,
+      userAnswer: event.target.value,
+      correctAnswer: question.correct_answer
     });
   };
 
   const handleAnswerSubmit = () => {
+    if (!selectedAnswer) return;
     onAnswerChange(selectedAnswer);
     setSelectedAnswer(null);
   };

@@ -54,18 +54,14 @@ function App() {
     if (questionsIndex === questions.length - 1) {
       setShowQuestions(false);
       setShowResults(true);
-      return;
+    } else{
+      setQuestionsIndex(questionsIndex + 1);
     }
-    setQuestionsIndex(questionsIndex + 1);
   };
 
-  if (questions.length > 0 && !showQuestions) {
+  if (questionsIndex + 1 < questions.length > 0 && !showQuestions) {
     setShowQuestions(true);
   }
-
-  useEffect(() => {
-    console.log(answers);
-  }, [answers]);
 
   return (
     <div>
