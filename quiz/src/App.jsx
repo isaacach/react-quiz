@@ -3,9 +3,11 @@ import { getQuizWithParams } from "./api/api";
 import { useEffect, useState } from "react";
 import Welcome from "./components/welcome";
 import Question from "./components/question";
+import { getRandomInt } from "./utils/random";
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
+  const [showResults, setShowResults] = useState(false);
   const [categorySelection, setCategorySelection] = useState(null);
   const [difficultySelection, setDifficultySelection] = useState(null);
   const [questionsSelection, setQuestionsSelection] = useState(null);
@@ -27,10 +29,16 @@ function App() {
 
   const fetchQuiz = async () => {
     const quiz = await getQuizWithParams(
-      questionsSelection ? questionsSelection : 10,
+      questionsSelection ? questionsSelection : 50,
       categorySelection ? categorySelection.value : "any",
       difficultySelection ? difficultySelection.value : "any"
     );
+    quiz.map((question) => {
+      let randomIndex = getRandomInt(question.incorrect_answers.length);
+      question.answers = [...question.incorrect_answers];
+      question.answers.splice(randomIndex, 0, question.correct_answer);
+    })
+    
     setQuestions(quiz);
   };
 

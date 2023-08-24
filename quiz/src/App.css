@@ -75,6 +75,11 @@ input[type="range"]:focus-visible {
   outline: none;
 }
 
+.question-choice {
+  font-size: 1.5rem;
+  margin-left: 90px;
+}
+
 .submit-welcome {
   width: 200px;
   height: 40px;
@@ -170,6 +175,7 @@ select::-ms-expand {
   background-color: #1a1a1a;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: open 0.2s ease;
 }
 
 .answers {

@@ -177,10 +177,9 @@ export default function Welcome({ onCategoryChange, onDifficultyChange, onQuesti
   return (
     <div>
       <h1>Test your knowledge</h1>
-      <h2>Choose parameters</h2>
       <form>
         <div className="form-block">
-          <label htmlFor="questions">Number of questions <span></span>{numberChoice}</label>
+          <label htmlFor="questions">Number of questions <span className="question-choice">{numberChoice}</span></label>
           <input
             name="questions"
             type="range"

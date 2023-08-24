@@ -9,19 +9,18 @@ export default function Question({ question, questionIndex, onAnswerChange }) {
     setSelectedAnswer({
       id: questionIndex,
       value: event.target.value,
+      answer: question.correct_answer
     });
   };
 
   const handleAnswerSubmit = () => {
     onAnswerChange(selectedAnswer);
-    selectedAnswer(null);
+    setSelectedAnswer(null);
   };
 
-  const answers = question.incorrect_answers.filter((answer, index) => {
-    return question.incorrect_answers.indexOf(answer) === index;
+  const answers = question.answers.filter((answer, index) => {
+    return question.answers.indexOf(answer) === index;
   });
-  const randomIndex = getRandomInt(answers.length);
-  answers.splice(randomIndex, 0, question.correct_answer);
 
   let questionTitle = question.question.replace(/&quot;/g, '"');
   let newQuestionTitle = questionTitle.replace(/&#039;/g, "'");
@@ -34,13 +33,13 @@ export default function Question({ question, questionIndex, onAnswerChange }) {
     <div className="question-card">
       <h3>{newQuestionTitle}</h3>
       <div  className="answers">
-      {answers.map((answer, index) => {
+      {answers.map((answer) => {
         let newAnswer = answer.replace(/&quot;/g, '"');
         let newAnswer2 = newAnswer.replace(/&#039;/g, "'");
         return (
-          <div key={index}>
-            <input type="radio" id={answer} name={`question${questionIndex}`} value={answer} onClick={handleAnswerChange} />
-            <label htmlFor={answer}>{newAnswer2}</label>
+          <div key={answer}>
+            <input type="radio" id={`question${questionIndex}`} name={`question${questionIndex}`} value={answer} onClick={handleAnswerChange} />
+            <label htmlFor={`question${questionIndex}`}>{newAnswer2}</label>
           </div>
         );
       })
