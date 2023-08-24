@@ -196,8 +196,15 @@ select::-ms-expand {
   align-items: center;
   width: 800px;
   padding: 2em;
-  background-color: #1a1a1a;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.green {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
